@@ -7,15 +7,15 @@ export function createRandomUser() {
   return {
     userId: faker.datatype.uuid(),
     username: faker.internet.userName(),
-    email: faker.internet.email(),
-    avatar: faker.image.avatar(),
-    password: faker.internet.password(),
-    birthdate: faker.date.birthdate(),
-    registeredAt: faker.date.past(),
+    address: faker.address.city(),
+    phone: faker.phone.number(),
+    age: faker.datatype.number({ min: 18, max: 100 }),
+    occupation: faker.company.name(),
+    vehicle: faker.vehicle.vehicle(),
   };
 }
 
-Array.from({ length: 100000 }).forEach(() => {
+Array.from({ length: 100 }).forEach(() => {
   User.push(createRandomUser());
 });
 
